@@ -29,6 +29,8 @@ public class CalculatorScript : MonoBehaviour {
 
     public void Calculate()
     {
+        answer.color = new Color(0, 0, 0);
+
         List<char> datalist = new List<char>();
         datalist.AddRange(input);
 
@@ -42,7 +44,8 @@ public class CalculatorScript : MonoBehaviour {
 
         if (test.hasErrors())
         {
-            answer.text = test.getMessage();           
+            answer.text = test.getMessage();
+            answer.color = new Color(255, 0, 0);
         }
         else
         {
@@ -55,7 +58,7 @@ public class CalculatorScript : MonoBehaviour {
             if (calculator.hasErrors())
             {
                 answer.text = calculator.getMessage();
-                
+                answer.color = new Color(255, 0, 0);
             }
             else
             {
@@ -69,25 +72,7 @@ public class CalculatorScript : MonoBehaviour {
     
     }
 
-    public string ParseAndCalc(char[] toParse)
-    {
-        List<char> result = new List<char>();
+    
 
-        
-        int i = 0;
-        while (char.IsDigit(toParse[i]))
-        {
-            result.Add(toParse[i]);
-            i++;
-        }
-        
-
-
-        return "Start - "+result.ToString()+"-Con";
-    }
-
-    public static bool IsCharDigit(char c)
-    {
-        return ((c >= '0') && (c <= '9'));
-    }
+    
 }
